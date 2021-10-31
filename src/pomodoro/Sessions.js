@@ -3,7 +3,7 @@ import { minutesToDuration, secondsToDuration } from "../utils/duration";
 
 
 
-export default function Session({ session, currentDuration, focusDuration, breakDuration }) {
+export default function Session({ session, currentDuration }) {
     if (!session) return null;
 //create a variable to store the quotient of timeRemaining divided by currentDuration
 const sliderIncrease = ((session?.timeRemaining) / (currentDuration * 60)).toFixed(2)*100;

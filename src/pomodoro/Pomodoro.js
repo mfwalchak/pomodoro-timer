@@ -3,6 +3,7 @@ import classNames from "../utils/class-names";
 import useInterval from "../utils/useInterval";
 import { minutesToDuration } from "../utils/duration/index"
 import Session from "./Sessions";
+import PauseButtonHandler from "./Handlers";
 
 
 //seeting up an initial state for our timer and session
@@ -131,16 +132,6 @@ function Pomodoro() {
     setIsTimerRunning(INITIAL_STATE.isTimerRunning);
     setSession(INITIAL_STATE.session);
   }
-  function pauseButtonHandler ({ session }){
-    if (session.timeRemaining > 0 && isTimerRunning) {
-            return null;
-        } else return (
-                <div>
-                    <h2>PAUSED</h2>
-                </div>
-            )
-    }
-
 
 
   return (
@@ -249,6 +240,10 @@ function Pomodoro() {
         </div>
       </div>
       <Session session={session} currentDuration={session?.label === "Focusing" ? focusDuration : breakDuration} />
+      <div>
+      <PauseButtonHandler session={session} isTimerRunning={isTimerRunning} />
+      </div>
+      
     </div>
 
 
